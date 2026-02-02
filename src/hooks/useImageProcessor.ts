@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from 'react';
-import { PixelData } from '../types';
+import { PixelData, BeadBrand } from '../types';
 import { loadImageFromFile, pixelateImage } from '../utils/imageProcessor';
 import { getAllColors } from '../data/beadColors';
 
@@ -19,7 +19,7 @@ export function useImageProcessor() {
       width: number,
       height: number,
       colorCount: number,
-      brand: string
+      brand: BeadBrand
     ): Promise<PixelData | null> => {
       setIsProcessing(true);
       setError(null);
@@ -60,7 +60,7 @@ export function useImageProcessor() {
       width: number,
       height: number,
       colorCount: number,
-      brand: string
+      brand: BeadBrand
     ): Promise<PixelData | null> => {
       const loadedImage = loadedImageRef.current;
       if (!loadedImage) {
